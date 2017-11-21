@@ -1,0 +1,35 @@
+pour installer "tomcat+ode":
+
+* dupliquer un tomcat existant (ex: tomcat8.5 vers tomcat-pour-ode-8282)
+* dans tomcat-pour-ode-8282/conf/server.xml
+  changer quelques numeros de port (ex: 8005 en 8205 , 8080 en 8282 , 8009 en 8209)
+* extraire ode.war de l'archive apache-ode-3.7.zip
+* recopier ode.war dans tomcat-pour-ode-8282/webapps
+* démarrer le tomcat-pour-ode-8282 via bin/startup.bat ou ....
+* vérifier le bon démarrage via 
+  http://localhost:8282 et http://localhost:8282/ode
+  
+  
+=======================
+
+deploiement vers "tomcat+ode":
+
+* recopier le répertoire "bpelContent" (de eclipse)
+  vers tomcat-pour-ode-8282/webapps/ode/WEB-INF/processes
+     soit directement (soit indirectement via script ou menu console)
+* Espérer très fort que ça fonctionne  
+
+====
+L'url (à retoucher dans axbArtifacts.wsdl juste avant le déploiement )
+  est http://localhost:8282/ode/processes/axb       
+====
+pour vérifier le bon deploiement:
+   * fichier bpelContent.deployed dans tomcat-pour-ode-8282/webapps/ode/WEB-INF/processes
+   * compteur passé de 0 à 1 dans console ODE
+   * si problème --> surveiller logs de tomcat
+====
+pour vérifier le bon fonctionnement:
+* http://localhost:8282/ode/processes/axb?wsdl (dans navigateur web)
+* test avec SOAPUI (en vérifiant/ajustant si besoin 8282)
+
+   
