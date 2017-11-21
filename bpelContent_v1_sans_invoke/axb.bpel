@@ -4,7 +4,6 @@
          targetNamespace="http://bpel.dja.afcepf.fr/"
          suppressJoinFailure="yes"
          xmlns:tns="http://bpel.dja.afcepf.fr/"
-         xmlns:nsc="http://ws.dja.afcepf.fr/"
          xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
        >
 
@@ -12,10 +11,6 @@
 	<bpel:import location="axbArtifacts.wsdl" 
 	          namespace="http://bpel.dja.afcepf.fr/" 
 	        importType="http://schemas.xmlsoap.org/wsdl/" />
-	        
-     <bpel:import location="calcul.wsdl" 
-	          namespace="http://ws.dja.afcepf.fr/" 
-	        importType="http://schemas.xmlsoap.org/wsdl/" />	        
          
     <!-- ================================================================= -->         
     <!-- PARTNERLINKS                                                      -->
@@ -27,11 +22,6 @@
                      partnerLinkType="tns:axb"
                      myRole="axbProvider"
                      />
-          <!-- The 'calculateur' role represents the java soap service -->            
-         <bpel:partnerLink name="calculateur"
-                     partnerLinkType="nsc:calcul"
-                     partnerRole="calculProvider"
-                     />                     
     </bpel:partnerLinks>
   
     <!-- ================================================================= -->         
@@ -48,17 +38,6 @@
           -->
         <bpel:variable name="output"
                   messageType="tns:axbResponseMessage"/>
-                  
-         <bpel:variable name="mult_input"
-                  messageType="nsc:multiplication"/> 
-         <bpel:variable name="mult_output"
-                  messageType="nsc:multiplicationResponse"/>
-                  
-         <bpel:variable name="add_input"
-                  messageType="nsc:addition"/> 
-         <bpel:variable name="add_output"
-                  messageType="nsc:additionResponse"/> 
-                                                      
     </bpel:variables>
 
     <!-- ================================================================= -->         
