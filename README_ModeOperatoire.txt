@@ -13,7 +13,9 @@ partnerRole="RoleExterne" )
 4) ajouter les variables "bpel" basées sur des types de messages WSDL (variables xxxInput
 et xxxOutput pour chaque opération à invoquer)
 5) ajouter et paramétrer tous les "invoke …" dans une séquence du BPEL
+   (penser à decocher "use WSDL ..." pour choisir variables ...input et ...ouput
 6) ajouter et paramétrer tous les "assign / copy/from" selon l'algorithme du processus.
 (Bien penser à initialiser la variable "output" du reply du processus bpel et les
 variables"xxxInput" de chaque opération invoquée : To = variable/payload ,
 From=fixed_value).
+7) peaufiner le fichier deploy.xml (en sélectionnant à la place de none) 
