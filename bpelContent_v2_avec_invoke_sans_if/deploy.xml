@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deploy xmlns="http://www.apache.org/ode/schemas/dd/2007/03" 
+ xmlns:nsc="http://ws.dja.afcepf.fr/"
+xmlns:bpel.dja.afcepf.fr="http://bpel.dja.afcepf.fr/">
+  <process name="bpel.dja.afcepf.fr:axb">
+    <active>true</active>
+    <retired>false</retired>
+    <in-memory>false</in-memory>
+    <provide partnerLink="client">
+      <service name="bpel.dja.afcepf.fr:axbService" port="axbPort"/>
+    </provide>
+    
+     <invoke partnerLink="calculateur">
+      <service name="nsc:ServiceCalculImplService" port="ServiceCalculImplPort"/>
+    </invoke>
+  </process>
+</deploy>
